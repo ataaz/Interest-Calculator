@@ -1,0 +1,26 @@
+<form id="calculator-form">
+  <input type="text" id="startingAmount" name="startingAmount" value="5000">
+  <div class="text-center">
+    <img src="<?php bloginfo('template_directory'); ?>/media/border-heading2.png">
+  </div>
+  <i>After</i>
+  <input type="text" name="years" value="5" id="years">
+  <div class="text-center">
+    <input type="submit" value="Calculate">
+  </div>
+</form>
+
+
+<script type="text/javascript">
+document.querySelector('#calculator-form').addEventListener('submit', function (e){
+	e.preventDefault()
+	let startingAmount = document.querySelector('#startingAmount').value
+	let year = document.querySelector('#years').value
+	let interestPercentage = 0.15
+	let totalInterest = startingAmount * interestPercentage
+	let finalInterest = totalInterest * year
+	var endBalance = parseInt(startingAmount) + parseInt(finalInterest)
+    document.getElementById("endBalance").innerHTML = endBalance;
+    document.getElementById("totalInterest").innerHTML = finalInterest
+})
+</script>
